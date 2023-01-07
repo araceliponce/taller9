@@ -1,0 +1,69 @@
+<p>trabajando con ngif y boolean</p>
+
+<input type="button" value={{valor}} (click)="generar()">
+<p *ngIf="mostrar">{{mensaje}}</p>
+
+
+
+
+<p>directiva ngmodel</p>
+
+<form>
+  <input type="text" name="nombre" [(ngModel)]="nombre">
+  <p>{{nombre}}</p>
+
+
+</form>
+
+<form action="">
+
+  <input type="number" name="num1" [(ngModel)]="numero1">
+  <input type="number" name="num2" [(ngModel)]="numero2">
+
+  <p>{{numero1+numero2}}</p>
+</form>
+
+
+<p>ng style</p>
+
+<p [ngStyle]="{'background': 'blue'}">fondo azul</p>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nro</th>
+      <th>Descripcion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let n of [1, 2 , 3, 4, 5]" [ngStyle]="{'background-color':n%2==0?'#148F77':'#F5CBA7'}">
+      <td>{{n}}</td>
+      <td>Tarea</td>
+    </tr>
+  </tbody>
+
+
+  <p>ngswitch</p>
+
+  <label>ingresar num <input [(ngModel)]="num3" type="number"> </label>
+
+  <p>Ingresar numero1: <input [(ngModel)]="num3" type="number"></p>
+  <p>Ingresar numero2: <input [(ngModel)]="num4" type="number"></p>
+  <p>
+    <select [(ngModel)]="op">
+      <option value="ninguno">Seleccionar Operacion matematica</option>
+      <option value="suma">Sumar numeros</option>
+      <option value="resta">Restar numeros</option>
+      <option value="multi">Multiplicar numeros</option>
+      <option value="div">Dividir numeros</option>
+    </select>
+  </p>
+  <p>Mostrar Resultado</p>
+  <span [ngSwitch]="op">
+    <span *ngSwitchCase="'suma'">{{num3}} + {{num4}} = {{num3 + num4}}</span>
+    <span *ngSwitchCase="'resta'">{{num3}} - {{num4}} = {{num3 - num4}}</span>
+    <span *ngSwitchCase="'multi'">{{num3}} * {{num4}} = {{num3 * num4}}</span>
+    <span *ngSwitchCase="'div'">{{num3}} / {{num4}} = {{num3 / num4}}</span>
+    <span *ngSwitchDefault>No seleccionon ninguna operacion</span>
+  </span>

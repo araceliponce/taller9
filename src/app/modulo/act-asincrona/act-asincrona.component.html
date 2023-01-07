@@ -1,0 +1,28 @@
+<section class="container">
+
+  <h2>ACTIVIDAD ASÍNCRONA</h2>
+  <form>
+    <label>Ingrese el primer valor
+      <input type="text" [(ngModel)]="num1" name="num1">
+    </label>
+
+    <label>Ingrese el segundo valor
+      <input type="text" [(ngModel)]="num2" name="num2">
+    </label>
+
+    <select (change)="update($event)" [(ngModel)]="selected" name="select">
+
+      <option value={{opcionDefault}}>{{opcionDefault}}</option> <!-- the placeholder option -->
+
+      <option *ngFor="let op of operaciones" value="{{op}}">{{op}}</option>
+
+    </select>
+
+    <section for="resultado">
+      <p [ngStyle]="{color: fontColor }">
+        Resultado: {{resultado}}
+      </p>
+    </section>
+  </form>
+
+</section>

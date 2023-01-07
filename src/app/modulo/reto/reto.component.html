@@ -1,0 +1,36 @@
+<!-- Usa la directiva ngIf-else-then block para mostrar un Div de contenido cuando el checkbox está activo. Si el checkbox se encuentra desactivado ocultará el Div.
+
+  vista 1: 
+  [] Is active
+  Activa el cheekbox para mostrar el contenido
+
+  vista 2:
+  [x] Is active
+  logo en fondo gris
+  **Angular**
+  lorem
+-->
+
+<section class="container">
+  <h2>RETO</h2>
+  <form>
+    <label aria-describedby="indicaciones" aria-controls="unDiv" aria-expanded="false">
+      <input type="checkbox" name="unCheckbox" id="unCheckbox" [checked]=boxIsChecked (change)="changed($event)"> Is active</label>
+  </form>
+
+
+  <ng-template #unParagraph>
+    <p id="indicaciones">Activa el checkbox para mostrar el contenido</p>
+  </ng-template>
+
+
+
+  <section id="unDiv" *ngIf="boxIsChecked; else unParagraph">
+    <figure class="bg-gray">
+      <img class="logo" src="https://angular.io/assets/images/logos/angular/angular.svg">
+    </figure>
+    <b>Angular</b>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur maxime nobis perspiciatis laborum aliquid a voluptatibus itaque nihil eos amet officia earum minus, ullam nemo. Possimus obcaecati odio iure qui.</p>
+  </section>
+
+</section>
